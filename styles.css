@@ -1,0 +1,124 @@
+/*--- Google Fonts ---*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+nav {
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  line-height: 70px;
+  padding: 0 10%;
+}
+
+nav .logo {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+nav .nav-list {
+  display: flex;
+}
+
+nav .nav-list .nav-item {
+  cursor: pointer;
+  height: 100%;
+  padding: 0 20px;
+  transition: 0.3s;
+}
+
+nav .nav-list .nav-item:hover {
+  background: #fff;
+}
+
+nav .nav-list .nav-item .nav-link {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+nav .nav-list .nav-item:hover .nav-link {
+  color: #000;
+}
+
+@media (max-width: 935px) {
+  nav {
+    padding: 0 5%;
+  }
+
+  nav .nav-list .nav-item {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 675px) {
+  nav .nav-list {
+    display: grid;
+    position: absolute;
+    background: #000;
+    width: 100%;
+    left: 0;
+    top: 70px;
+    z-index: -1;
+    transform: translateY(-150%);
+    transition: 0.3s;
+  }
+
+  nav .nav-list .nav-item {
+    padding-left: 35px;
+  }
+
+  nav .menu-toggle {
+    display: grid !important;
+  }
+}
+
+input {
+  display: none;
+}
+
+nav .menu-toggle {
+  display: none;
+  height: min-content;
+  margin: 18px -10px 0 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav .menu-toggle .bar {
+  width: 40px;
+  height: 5px;
+  background: #fff;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+input:checked ~ nav .nav-list {
+  transform: translateY(0);
+}
+
+input:checked ~ nav .menu-toggle {
+  margin-top: 35px;
+}
+
+input:checked ~ nav .menu-toggle .bar:nth-child(1) {
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+input:checked ~ nav .menu-toggle .bar:nth-child(2) {
+  display: none;
+}
+
+input:checked ~ nav .menu-toggle .bar:nth-child(3) {
+  transform: rotate(-45deg);
+}
